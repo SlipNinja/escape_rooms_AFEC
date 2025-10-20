@@ -20,9 +20,13 @@
 				let room = document.getElementById("main_container").getAttribute("data-room");
 				room++;
 				let gameEngine = new GameEngine(room);
-				gameEngine.checkAnswer("abc").then((response) => {
-					console.log(response);
-				});
+
+				let isGood = await gameEngine.checkAnswer("abc");
+				console.log("The answer is ", isGood);
+				isGood = await gameEngine.checkAnswer("abs");
+				console.log("The answer is ", isGood);
+				isGood = await gameEngine.checkAnswer("abc");
+				console.log("The answer is ", isGood);
 			}
 
 			document.addEventListener("DOMContentLoaded", ready);
