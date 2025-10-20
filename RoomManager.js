@@ -1,8 +1,16 @@
 class RoomManager {
 	container = document.getElementById("main_container");
-	roomNumber = 0;
+	current_room = 1;
 
-	async load_room(room_number) {
+	get_current_room() {
+		return this.current_room;
+	}
+
+	increment_room() {
+		this.current_room++;
+	}
+
+	async load_room(room_number = this.current_room) {
 		this.container.innerHTML = await this.fetch_room_html(room_number);
 		this.replace_js(room_number);
 		this.replace_css(room_number);

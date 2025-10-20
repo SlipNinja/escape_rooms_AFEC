@@ -1,7 +1,7 @@
 class GameEngine {
 	room;
 
-	constructor(roomNumber) {
+	constructor() {
 		this.room = new RoomManager();
 	}
 
@@ -16,7 +16,7 @@ class GameEngine {
 	startGame() {
 		document.getElementsByClassName("answer")[0].style.display = "flex";
 
-		this.room.load_room(1);
+		this.room.load_room(this.room.get_current_room());
 	}
 
 	nextPage() {
