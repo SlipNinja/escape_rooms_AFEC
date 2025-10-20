@@ -8,10 +8,8 @@ class GameEngine {
 	}
 
 	async checkAnswer(val) {
-		console.log(this.room);
 		const response = await fetch(`rooms/room_${this.room.roomNumber}/questions.json`);
 		const data = await response.json();
-		console.log("DATA ", data);
 		return val == data.answer;
 	}
 
@@ -21,18 +19,22 @@ class GameEngine {
 	}
 
 	nextPage() {
-		console.log(this.room);
-		this.room.roomNumber++;
-		console.log(this.room);
-		document.getElementsByClassName("answer")[0].style.display = "flex";
-		console.log(this.room.roomNumber);
+		this.room.increment_room();
+		this.room.load_room(this.room.get_current_room());
 	}
 }
 
 const gameEngine = new GameEngine();
 const main_button = document.getElementById("main_container").firstElementChild;
+const next_button = document.getElementsByClassName("next_btn")[0];
 document.getElementsByClassName("answer")[0].style.display = "none";
 
+// Main button
 main_button.addEventListener("click", function (e) {
 	gameEngine.startGame();
+});
+
+// Validation button
+next_button.addEventListener("click", function (e) {
+	gameEngine.nextPage();
 });
