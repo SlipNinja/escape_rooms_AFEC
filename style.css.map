@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 {"version":3,"sources":["style.scss","style.css"],"names":[],"mappings":"AAMA;EALC,aAAA;EACA,uBAAA;EACA,mBAAA;EAKA,aAAA;EACA,YAAA;EACA,iCAAA;EACA,SAAA;ACHD;ADKC;EAZA,aAAA;EACA,uBAAA;EACA,mBAAA;EAYC,WAAA;EACA,UAAA;EAEA,oCAAA;ACFF;;ADMA;EACC,kBAAA;EACA,iBAAA;EACA,sBAAA;EACA,kBAAA;EACA,eAAA;EACA,sBAAA;EACA,gBAAA;ACHD","file":"style.css"}
+=======
+{"version":3,"sourceRoot":"","sources":["style.scss"],"names":[],"mappings":"AAMA;EALC;EACA;EACA;EAKA;EACA;EACA;EACA;;AAEA;EAZA;EACA;EACA;EAYC;EACA;EAEA;;AAEA;EAnBD;EACA;EACA;EAmBE;EACA;;;AAKH;EACC;EACA;EACA;EACA;EACA;EACA;EACA","file":"style.css"}
+>>>>>>> Stashed changes

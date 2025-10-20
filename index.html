@@ -7,11 +7,26 @@
 		<link rel="stylesheet" href="style.css" />
 		<link class="replaceable" rel="stylesheet" href="" />
 		<script type="text/javascript" src="./RoomManager.js" defer></script>
+		<script type="text/javascript" src="./GameEngine.js" defer></script>
 		<script class="replaceable" type="text/javascript" src=""></script>
 	</head>
 	<body>
 		<div id="main_container">
-			<button type="button" onclick="Manager.load_room(1)">Commencer le jeu</button>
+			<button type="button" onclick="Manager.load_room(1)" data-room="0">Commencer le jeu</button>
 		</div>
+
+		<script>
+			function ready() {
+				debugger;
+
+				let room = document.getElementById("main_container").getAttribute("data-room");
+				room++;
+				let gameEngine = new GameEngine(room);
+				let isGood = gameEngine.checkAnswer("abc");
+				console.log(isGood);
+			}
+
+			document.addEventListener("DOMContentLoaded", ready);
+		</script>
 	</body>
 </html>

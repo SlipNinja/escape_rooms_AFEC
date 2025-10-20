@@ -8,20 +8,20 @@ class RoomManager {
 	}
 
 	async fetch_room_html(room) {
-		const html_file = `./rooms/room_${room}/room_${room}.html`;
+		const html_file = `rooms/room_${room}/room_${room}.html`;
 		return fetch(html_file).then((response) => {
 			return response.text();
 		});
 	}
 
 	replace_css(room) {
-		const html_file = `./rooms/room_${room}/room_${room}.css`;
+		const html_file = `rooms/room_${room}/room_${room}.css`;
 		const css_link = document.querySelector("link.replaceable");
 		css_link.href = html_file;
 	}
 
 	replace_js(room) {
-		const js_file = `./rooms/room_${room}/room_${room}.js`;
+		const js_file = `rooms/room_${room}/room_${room}.js`;
 		const js_script = document.querySelector("script.replaceable");
 		js_script.remove();
 
