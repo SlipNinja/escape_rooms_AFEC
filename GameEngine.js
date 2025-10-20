@@ -1,7 +1,7 @@
 class GameEngine {
 	room;
 
-	constructor(roomNumber) {
+	constructor() {
 		this.room = new RoomManager();
 	}
 
@@ -14,10 +14,11 @@ class GameEngine {
 	}
 
 	startGame() {
-		this.room.load_room(1);
+		this.room.load_room(this.room.get_current_room());
 	}
 
 	nextPage() {
-		console.log(this.room.roomNumber);
+		this.room.increment_room();
+		this.room.load_room(this.room.get_current_room());
 	}
 }

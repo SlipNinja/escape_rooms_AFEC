@@ -6,7 +6,6 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="style.css" />
 		<link class="replaceable" rel="stylesheet" href="" />
-		<script type="text/javascript" src="./RoomManager.js" defer></script>
 		<script type="text/javascript" src="./GameEngine.js" defer></script>
 		<script class="replaceable" type="text/javascript" src=""></script>
 	</head>
@@ -18,7 +17,7 @@
 		<script>
 			let gameEngine;
 			async function ready() {
-				gameEngine = new GameEngine(1);
+				gameEngine = new GameEngine();
 
 				console.log(gameEngine);
 			}
