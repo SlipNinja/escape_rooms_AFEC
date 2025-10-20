@@ -35,4 +35,3 @@ class RoomManager {
 }
 
 let Manager = new RoomManager();
-Manager.load_room(1);
