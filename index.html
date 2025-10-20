@@ -12,21 +12,16 @@
 	</head>
 	<body>
 		<div id="main_container">
-			<button type="button" onclick="Manager.load_room(1)" data-room="0">Commencer le jeu</button>
+			<button type="button">Commencer le jeu</button>
 		</div>
 
 		<script>
 			async function ready() {
-				let room = document.getElementById("main_container").getAttribute("data-room");
-				room++;
-				let gameEngine = new GameEngine(room);
+				debugger;
+				let gameEngine = new GameEngine(1);
 
-				let isGood = await gameEngine.checkAnswer("abc");
-				console.log("The answer is ", isGood);
-				isGood = await gameEngine.checkAnswer("abs");
-				console.log("The answer is ", isGood);
-				isGood = await gameEngine.checkAnswer("abc");
-				console.log("The answer is ", isGood);
+				console.log(gameEngine);
+				gameEngine.checkAnswer("abc");
 			}
 
 			document.addEventListener("DOMContentLoaded", ready);

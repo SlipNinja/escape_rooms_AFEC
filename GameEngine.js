@@ -1,9 +1,13 @@
 class GameEngine {
-	roomNumber = 1;
-	questions = null;
+	room;
+
+	constructor(roomNumber) {
+		this.room = new RoomManager(roomNumber);
+	}
 
 	async checkAnswer(val) {
-		const response = await fetch(`rooms/room_${this.roomNumber}/questions.json`);
+		console.log(this.room);
+		const response = await fetch(`rooms/room_${this.room.roomNumber}/questions.json`);
 		const data = await response.json();
 		console.log("DATA ", data);
 		return val == data.answer;
