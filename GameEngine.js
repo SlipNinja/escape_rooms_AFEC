@@ -17,14 +17,10 @@ class GameEngine {
 
 	async checkAnswer(val) {
 		console.log("Check answers");
-		this.getRoomQuestion().then((response) => {
+		return this.getRoomQuestion().then((response) => {
 			this.questions = response;
 			console.log("CHECK QUESTION ", this.questions);
-			if (val == this.questions.answer) {
-				console.log("good answer");
-			} else {
-				console.log("bad answer");
-			}
+			return val == this.questions.answer;
 		});
 	}
 }
