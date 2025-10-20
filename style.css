@@ -1,7 +1,24 @@
+body {
+  margin: 0;
+}
+
 #main_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5%;
-  background-color: red;
-}/*# sourceMappingURL=style.css.map */
+  padding: 5vh;
+  background-color: #60765a;
+  min-height: 90vh;
+}
+
+button {
+  padding: 10px 30px;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=style.css.map */
