@@ -17,8 +17,8 @@ class GameEngine {
 
 	async checkAnswer(val) {
 		console.log("Check answers");
-		this.questions = this.getRoomQuestion().then((response) => {
-			console.log("RESPONSE :", response);
+		this.getRoomQuestion().then((response) => {
+			this.questions = response;
 			console.log("CHECK QUESTION ", this.questions);
 			if (val == this.questions.answer) {
 				console.log("good answer");
