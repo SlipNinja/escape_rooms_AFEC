@@ -33,6 +33,9 @@ body .answer button {
   background: green;
   color: white;
 }
+body #error {
+  color: red;
+}
 
 button {
   padding: 10px 30px;

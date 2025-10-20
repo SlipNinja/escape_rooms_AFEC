@@ -1,6 +1,6 @@
 export class RoomManager {
 	container = document.getElementById("main_container");
-	current_room = 1;
+	current_room = 0;
 
 	get_current_room() {
 		return this.current_room;
