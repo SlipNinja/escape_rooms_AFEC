@@ -1,11 +1,20 @@
-@mixin flex-center {
+@mixin flex_center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#main_container {
-	@include flex-center;
-	padding: 5%;
-	background-color: red;
+body {
+	@include flex_center;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgb(39, 24, 24);
+
+	& > #main_container {
+		@include flex-center;
+		height: 80%;
+		width: 60%;
+
+		background-color: rgb(255, 255, 255);
+	}
 }

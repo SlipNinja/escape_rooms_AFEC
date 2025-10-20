@@ -1,7 +1,16 @@
-#main_container {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5%;
-  background-color: red;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(39, 24, 24);
+}
+body > #main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 60%;
+  background-color: rgb(255, 255, 255);
 }/*# sourceMappingURL=style.css.map */
