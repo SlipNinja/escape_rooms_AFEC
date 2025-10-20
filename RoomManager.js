@@ -2,10 +2,6 @@ class RoomManager {
 	container = document.getElementById("main_container");
 	roomNumber = 0;
 
-	constructor(roomNumber) {
-		this.roomNumber = roomNumber;
-	}
-
 	async load_room(room_number) {
 		this.container.innerHTML = await this.fetch_room_html(room_number);
 		this.replace_js(room_number);
@@ -38,5 +34,3 @@ class RoomManager {
 		document.head.appendChild(new_script);
 	}
 }
-
-let Manager = new RoomManager();

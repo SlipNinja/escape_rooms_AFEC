@@ -12,16 +12,15 @@
 	</head>
 	<body>
 		<div id="main_container">
-			<button type="button">Commencer le jeu</button>
+			<button type="button" onclick="gameEngine.startGame()">Commencer le jeu</button>
 		</div>
 
 		<script>
+			let gameEngine;
 			async function ready() {
-				debugger;
-				let gameEngine = new GameEngine(1);
+				gameEngine = new GameEngine(1);
 
 				console.log(gameEngine);
-				gameEngine.checkAnswer("abc");
 			}
 
 			document.addEventListener("DOMContentLoaded", ready);

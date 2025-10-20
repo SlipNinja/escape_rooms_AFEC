@@ -2,7 +2,7 @@ class GameEngine {
 	room;
 
 	constructor(roomNumber) {
-		this.room = new RoomManager(roomNumber);
+		this.room = new RoomManager();
 	}
 
 	async checkAnswer(val) {
@@ -11,5 +11,13 @@ class GameEngine {
 		const data = await response.json();
 		console.log("DATA ", data);
 		return val == data.answer;
+	}
+
+	startGame() {
+		this.room.load_room(1);
+	}
+
+	nextPage() {
+		console.log(this.room.roomNumber);
 	}
 }
