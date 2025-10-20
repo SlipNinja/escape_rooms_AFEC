@@ -16,7 +16,7 @@ class RoomManager {
 
 	replace_css(room) {
 		const html_file = `./rooms/room_${room}/room_${room}.css`;
-		const css_link = document.getElementsByTagName("link")[0];
+		const css_link = document.querySelector("link.replaceable");
 		css_link.href = html_file;
 	}
 }
