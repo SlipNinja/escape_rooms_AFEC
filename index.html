@@ -16,14 +16,13 @@
 		</div>
 
 		<script>
-			function ready() {
-				debugger;
-
+			async function ready() {
 				let room = document.getElementById("main_container").getAttribute("data-room");
 				room++;
 				let gameEngine = new GameEngine(room);
-				let isGood = gameEngine.checkAnswer("abc");
-				console.log(isGood);
+				let isGood = gameEngine.checkAnswer("abc").then((response) => {
+					console.log("IS GOOD ", isGood);
+				});
 			}
 
 			document.addEventListener("DOMContentLoaded", ready);

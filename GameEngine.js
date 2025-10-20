@@ -1,40 +1,30 @@
 class GameEngine {
-	roomNumber = 0;
+	roomNumber = 1;
 	questions = null;
 
-	constructor(roomNumber) {
-		this.roomNumber = roomNumber;
+	constructor() {}
+
+	async getRoomQuestion() {
+		return fetch(`rooms/room_${this.roomNumber}/questions.json`).then((r) => {
+			if (r.ok) {
+				console.log("Get Questions");
+				return r.json();
+			} else {
+				throw new Error("Erreur serveur", { cause: r });
+			}
+		});
 	}
 
-	getRoomQuestion() {
-		fetch("rooms/room_" + this.roomNumber + "/questions.json", {
-			headers: {
-				Accept: "application/json",
-			},
-		})
-			.then((r) => {
-				if (r.ok) {
-					return r.json();
-				} else {
-					throw new Error("Erreur serveur", { cause: r });
-				}
-			})
-			.then((questions) => {
-				this.questions = questions;
-				return this;
-			})
-			.catch((e) => {
-				console.error("Une erreur est survenue", e);
-			});
-	}
-
-	checkAnswer(val) {
-		this.getRoomQuestion();
-		console.log("aaaa" + this.roomNumber);
-		if (val == this.questions.answer) {
-			console.log("good answer");
-		} else {
-			console.log("bad answer");
-		}
+	async checkAnswer(val) {
+		console.log("Check answers");
+		this.questions = this.getRoomQuestion().then((response) => {
+			console.log("RESPONSE :", response);
+			console.log("CHECK QUESTION ", this.questions);
+			if (val == this.questions.answer) {
+				console.log("good answer");
+			} else {
+				console.log("bad answer");
+			}
+		});
 	}
 }
