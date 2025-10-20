@@ -15,6 +15,24 @@ body > #main_container {
   width: 60%;
   background-color: rgb(255, 255, 255);
 }
+body .answer {
+  display: flex;
+  flex-direction: column;
+  background: rgba(25, 25, 25, 0.5);
+  gap: 20px;
+  height: 80%;
+  justify-content: center;
+  width: 30%;
+  padding: 2%;
+  box-sizing: border-box;
+}
+body .answer input {
+  padding: 10px;
+}
+body .answer button {
+  background: green;
+  color: white;
+}
 
 button {
   padding: 10px 30px;
@@ -24,4 +42,6 @@ button {
   font-size: 16px;
   letter-spacing: 0.1rem;
   font-weight: 600;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

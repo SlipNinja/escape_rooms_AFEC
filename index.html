@@ -14,11 +14,14 @@
 		<div id="main_container">
 			<button type="button" onclick="gameEngine.startGame()">Commencer le jeu</button>
 		</div>
+		<div class="answer"><input type="text" placeholder="Your answer here"><button type="button" onclick="gameEngine.nextPage()">Check</button>
 
 		<script>
 			let gameEngine;
 			async function ready() {
 				gameEngine = new GameEngine(1);
+
+				document.getElementsByClassName('answer')[0].style.display = 'none';
 
 				console.log(gameEngine);
 			}

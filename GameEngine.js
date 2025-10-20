@@ -14,10 +14,16 @@ class GameEngine {
 	}
 
 	startGame() {
+		document.getElementsByClassName("answer")[0].style.display = "flex";
+
 		this.room.load_room(1);
 	}
 
 	nextPage() {
+		console.log(this.room);
+		this.room.roomNumber++;
+		console.log(this.room);
+		document.getElementsByClassName("answer")[0].style.display = "flex";
 		console.log(this.room.roomNumber);
 	}
 }
