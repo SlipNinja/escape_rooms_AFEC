@@ -15,13 +15,6 @@ body > #main_container {
   width: 60%;
   background-color: rgb(255, 255, 255);
 }
-body > #main_container > * {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 
 button {
   padding: 10px 30px;
