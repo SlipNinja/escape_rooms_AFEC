@@ -6,27 +6,13 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="style.css" />
 		<link class="replaceable" rel="stylesheet" href="" />
-		<script type="text/javascript" src="./RoomManager.js" defer></script>
-		<script type="text/javascript" src="./GameEngine.js" defer></script>
+		<script type="module" src="./GameEngine.js"></script>
 		<script class="replaceable" type="text/javascript" src=""></script>
 	</head>
 	<body>
 		<div id="main_container">
-			<button type="button" onclick="gameEngine.startGame()">Commencer le jeu</button>
+			<button type="button">Commencer le jeu</button>
 		</div>
 		<div class="answer"><input type="text" placeholder="Your answer here"><button type="button" onclick="gameEngine.nextPage()">Check</button>
-
-		<script>
-			let gameEngine;
-			async function ready() {
-				gameEngine = new GameEngine();
-
-				document.getElementsByClassName('answer')[0].style.display = 'none';
-
-				console.log(gameEngine);
-			}
-
-			document.addEventListener("DOMContentLoaded", ready);
-		</script>
 	</body>
 </html>

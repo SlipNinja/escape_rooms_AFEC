@@ -1,4 +1,4 @@
-class RoomManager {
+export class RoomManager {
 	container = document.getElementById("main_container");
 	current_room = 1;
 
@@ -11,6 +11,7 @@ class RoomManager {
 	}
 
 	async load_room(room_number = this.current_room) {
+		console.log("CLICKED");
 		this.container.innerHTML = await this.fetch_room_html(room_number);
 		this.replace_js(room_number);
 		this.replace_css(room_number);

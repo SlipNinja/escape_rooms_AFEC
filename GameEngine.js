@@ -1,3 +1,5 @@
+import { RoomManager } from "./RoomManager.js";
+
 class GameEngine {
 	room;
 
@@ -14,8 +16,6 @@ class GameEngine {
 	}
 
 	startGame() {
-		document.getElementsByClassName("answer")[0].style.display = "flex";
-
 		this.room.load_room(this.room.get_current_room());
 	}
 
@@ -27,3 +27,17 @@ class GameEngine {
 		console.log(this.room.roomNumber);
 	}
 }
+
+const gameEngine = new GameEngine();
+const main_button = document.getElementById("main_container").firstElementChild;
+
+main_button.addEventListener("click", function (e) {
+	gameEngine.startGame();
+});
+
+// async function ready() {
+// 	document.getElementsByClassName("answer")[0].style.display = "none";
+// 	console.log(gameEngine);
+// }
+
+// document.addEventListener("DOMContentLoaded", ready);
