@@ -63,4 +63,4 @@ for (const btn of next_buttons) {
 	});
 }
 
-gameEngine.room.load_room(4);
+gameEngine.room.load_room(5);

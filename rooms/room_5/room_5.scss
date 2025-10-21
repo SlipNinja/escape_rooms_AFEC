@@ -1,0 +1,26 @@
+@use "../../tools";
+
+$main_color: rgb(179, 218, 136);
+
+.room {
+	@include tools.flex_center;
+	width: 100%;
+	height: 100%;
+	gap: 50px;
+	background-color: $main_color;
+
+	& > .secret_text {
+		font-size: 20px;
+	}
+
+	& > .hidden_button {
+		background-color: $main_color;
+		color: $main_color;
+		border: none;
+
+		&:hover {
+			background-color: rgb(49, 0, 0);
+			color: white;
+		}
+	}
+}
