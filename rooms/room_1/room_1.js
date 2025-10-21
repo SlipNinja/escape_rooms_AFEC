@@ -1,4 +1,8 @@
-const btns = [];
+if (typeof btns === undefined) {
+	let btns = [];
+} else {
+	btns = [];
+}
 
 function add_btn() {
 	if (btns.length < 30) {
