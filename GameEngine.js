@@ -3,6 +3,7 @@ import { EnigmaManager } from "./EnigmaManager.js";
 
 class GameEngine {
 	room;
+	enigma;
 
 	constructor() {
 		this.room = new RoomManager();
@@ -25,7 +26,6 @@ class GameEngine {
 	}
 
 	updateQuestion() {
-		debugger;
 		document.getElementById("question").innerHTML = this.enigma.getQuestionById(this.room.get_current_room()).question;
 	}
 
