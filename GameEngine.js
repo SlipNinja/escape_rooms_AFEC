@@ -3,6 +3,7 @@ import { EnigmaManager } from "./EnigmaManager.js";
 
 class GameEngine {
 	room;
+	enigma;
 
 	constructor() {
 		this.room = new RoomManager();
