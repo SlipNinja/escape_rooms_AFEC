@@ -2,8 +2,8 @@
 	"questions": [
 		{
 			"id": 1,
-			"question": "Find the code in the room to get to the second room",
-			"answer": "St4ckOv3rfl0ww"
+			"question": "What color is the button background?",
+			"answer": "rgb(179, 218, 136)"
 		},
 		{
 			"id": 2,
