@@ -18,10 +18,9 @@ body > #main_container {
 body #answer_container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background: rgba(25, 25, 25, 0.5);
-  gap: 20px;
   height: 80%;
-  justify-content: center;
   width: 30%;
   padding: 2%;
   box-sizing: border-box;
@@ -32,6 +31,19 @@ body #answer_container input {
 body #answer_container button {
   background: green;
   color: white;
+}
+body #answer_container #restart {
+  background: white;
+  color: black;
+  font-size: 14px;
+}
+body #answer_container > div:last-child {
+  text-align: center;
+}
+body #answer_container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 body #error {
   color: red;
@@ -52,4 +64,6 @@ button {
   font-size: 16px;
   letter-spacing: 0.1rem;
   font-weight: 600;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
