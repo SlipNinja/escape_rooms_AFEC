@@ -1,10 +1,6 @@
 export class RoomManager {
 	container = document.getElementById("main_container");
 
-	constructor() {
-		this.load_room();
-	}
-
 	get_current_room() {
 		if (!sessionStorage.getItem("currentRoomNumber")) sessionStorage.setItem("currentRoomNumber", 0);
 
@@ -14,7 +10,6 @@ export class RoomManager {
 	increment_room() {
 		let currRoom = parseInt(sessionStorage.getItem("currentRoomNumber"));
 		sessionStorage.setItem("currentRoomNumber", currRoom + 1);
-		console.log("increased", sessionStorage.getItem("currentRoomNumber"));
 	}
 
 	notLandingPage() {
@@ -22,8 +17,6 @@ export class RoomManager {
 	}
 
 	async load_room(room_number = this.get_current_room()) {
-		console.log("CLICKED");
-		console.log(room_number);
 		this.container.innerHTML = await this.fetch_room_html(room_number);
 
 		if (this.notLandingPage()) {
@@ -36,15 +29,10 @@ export class RoomManager {
 	async fetch_room_html(room) {
 		let html_file;
 		if (room > 0) {
-			console.log("fetch html >0");
 			html_file = `rooms/room_${room}/room_${room}.html`;
 		} else {
-			console.log("fetch html 0");
-
 			html_file = `landing.html`;
 		}
-
-		console.log("fetch html room", html_file);
 
 		return fetch(html_file).then((response) => {
 			return response.text();

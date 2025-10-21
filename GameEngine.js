@@ -32,26 +32,24 @@ class GameEngine {
 		).question;
 	}
 
+	changePage() {
+		this.resetInput();
+		this.room.increment_room();
+		this.room.load_room();
+		this.updateQuestion();
+	}
+
 	nextPage() {
 		if (this.room.get_current_room() > 0) {
-			console.log(">0");
 			this.checkAnswer().then((response) => {
 				if (response) {
-					this.resetInput();
-					this.room.increment_room();
-					this.room.load_room();
-					this.updateQuestion();
+					this.changePage();
 				} else {
 					this.displayErrorMessage();
 				}
 			});
 		} else {
-			console.log("0");
-
-			this.resetInput();
-			this.room.increment_room();
-			this.room.load_room();
-			this.updateQuestion();
+			this.changePage();
 		}
 	}
 
@@ -63,6 +61,8 @@ class GameEngine {
 }
 
 const gameEngine = new GameEngine();
+gameEngine.room.load_room();
+
 const restart_button = document.getElementById("restart");
 
 document.getElementById("main").addEventListener("click", function (event) {

@@ -18,10 +18,9 @@ body {
 	& #answer_container {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		background: rgba(25, 25, 25, 0.5);
-		gap: 20px;
 		height: 80%;
-		justify-content: center;
 		width: 30%;
 		padding: 2%;
 		box-sizing: border-box;
@@ -33,6 +32,21 @@ body {
 		& button {
 			background: green;
 			color: white;
+		}
+
+		#restart {
+			background: white;
+			color: black;
+			font-size: 14px;
+		}
+
+		> div:last-child {
+			text-align: center;
+		}
+		> div:first-child {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 		}
 	}
 
