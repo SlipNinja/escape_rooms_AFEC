@@ -10,7 +10,7 @@ class GameEngine {
 		this.enigma = new EnigmaManager();
 	}
 
-	async checkAnswer() {
+	checkAnswer() {
 		const answer = document.getElementById("answer").value;
 
 		console.log("ANSWER", answer);
@@ -41,13 +41,11 @@ class GameEngine {
 
 	nextPage() {
 		if (this.room.get_current_room() > 0) {
-			this.checkAnswer().then((response) => {
-				if (response) {
-					this.changePage();
-				} else {
-					this.displayErrorMessage();
-				}
-			});
+			if (this.checkAnswer()) {
+				this.changePage();
+			} else {
+				this.displayErrorMessage();
+			}
 		} else {
 			this.changePage();
 		}
