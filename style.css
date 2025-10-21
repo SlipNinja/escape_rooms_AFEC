@@ -40,6 +40,9 @@ body #answer {
   color: rgb(4, 17, 9);
   background-color: rgb(230, 247, 156);
 }
+body #question {
+  color: #fcfcfc;
+}
 
 button {
   padding: 10px 30px;
