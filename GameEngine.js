@@ -28,7 +28,9 @@ class GameEngine {
 	}
 
 	updateQuestion() {
-		document.getElementById("question").innerHTML = this.enigma.getQuestionById(this.room.get_current_room()).question;
+		document.getElementById("question").innerHTML = this.enigma.getQuestionById(
+			this.room.get_current_room()
+		).question;
 	}
 
 	nextPage() {
@@ -60,3 +62,5 @@ for (const btn of next_buttons) {
 		gameEngine.nextPage();
 	});
 }
+
+gameEngine.room.load_room(4);
