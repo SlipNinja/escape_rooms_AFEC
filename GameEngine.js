@@ -13,28 +13,21 @@ class GameEngine {
 		const answer = document.getElementById("answer").value;
 
 		let currentRoom = this.room.get_current_room();
-		const response = await fetch(`rooms/room_${currentRoom}/questions.json`);
-		const data = await response.json();
 
-		console.log(answer, data.answer);
-		return answer == data.answer;
-	}
-
-	async getQuestion() {
-		let currentRoom = this.room.get_current_room();
-		const response = await fetch(`rooms/room_${currentRoom}/questions.json`);
-		const data = await response.json();
-
-		return data;
+		return answer == this.enigma.getQuestionById(currentRoom).answer;
 	}
 
 	displayErrorMessage() {
 		document.getElementById("error").innerHTML = "Wrong Answer! Try Again";
 	}
 
-	validateInput() {
+	resetInput() {
 		document.getElementById("error").innerHTML = "";
 		document.getElementById("answer").value = "";
+	}
+
+	updateQuestion() {
+		document.getElementById("question").innerHTML = this.enigma.getQuestionById(this.room.get_current_room()).question;
 	}
 
 	nextPage() {
@@ -43,9 +36,10 @@ class GameEngine {
 			let _this = this;
 			this.checkAnswer().then(function (response) {
 				if (response) {
-					_this.validateInput();
+					_this.resetInput();
 					_this.room.increment_room();
 					_this.room.load_room(_this.room.get_current_room());
+					_this.updateQuestion();
 				} else {
 					_this.displayErrorMessage();
 				}
@@ -53,6 +47,7 @@ class GameEngine {
 		} else {
 			this.room.increment_room();
 			this.room.load_room(this.room.get_current_room());
+			this.updateQuestion();
 			document.getElementsByClassName("answer")[0].style.display = "flex";
 		}
 	}
