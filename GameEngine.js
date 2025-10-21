@@ -13,6 +13,7 @@ class GameEngine {
 	async checkAnswer() {
 		const answer = document.getElementById("answer").value;
 
+		console.log("ANSWER", answer);
 		return answer == this.enigma.getQuestionById(this.room.get_current_room()).answer;
 	}
 
@@ -26,11 +27,12 @@ class GameEngine {
 	}
 
 	updateQuestion() {
-		document.getElementById("question").innerHTML = this.enigma.getQuestionById(this.room.get_current_room()).question;
+		document.getElementById("question").innerHTML = this.enigma.getQuestionById(
+			this.room.get_current_room()
+		).question;
 	}
 
 	nextPage() {
-		debugger;
 		if (this.room.get_current_room() > 0) {
 			console.log(">0");
 			this.checkAnswer().then((response) => {
@@ -65,6 +67,7 @@ const restart_button = document.getElementById("restart");
 
 document.getElementById("main").addEventListener("click", function (event) {
 	if (event.target.classList.contains("next_btn")) {
+		console.log(document.getElementById("answer").value);
 		gameEngine.nextPage();
 	}
 });
