@@ -27,21 +27,21 @@ class GameEngine {
 	}
 
 	updateQuestion() {
-		document.getElementById("question").innerHTML = this.enigma.getQuestionById(this.room.get_current_room()).question;
+		document.getElementById("question").innerHTML = this.enigma.getQuestionById(
+			this.room.get_current_room()
+		).question;
 	}
 
 	nextPage() {
-		//debugger;
 		if (this.room.get_current_room()) {
-			let _this = this;
-			this.checkAnswer().then(function (response) {
+			this.checkAnswer().then((response) => {
 				if (response) {
-					_this.resetInput();
-					_this.room.increment_room();
-					_this.room.load_room(_this.room.get_current_room());
-					_this.updateQuestion();
+					this.resetInput();
+					this.room.increment_room();
+					this.room.load_room(this.room.get_current_room());
+					this.updateQuestion();
 				} else {
-					_this.displayErrorMessage();
+					this.displayErrorMessage();
 				}
 			});
 		} else {
@@ -56,8 +56,8 @@ class GameEngine {
 const gameEngine = new GameEngine();
 const next_buttons = document.getElementsByClassName("next_btn");
 
-for (var i = 0; i < next_buttons.length; i++) {
-	next_buttons[i].addEventListener("click", function (e) {
+for (const btn of next_buttons) {
+	btn.addEventListener("click", function (e) {
 		gameEngine.nextPage();
 	});
 }
