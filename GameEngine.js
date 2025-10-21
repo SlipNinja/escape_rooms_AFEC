@@ -63,13 +63,13 @@ gameEngine.room.load_room();
 
 const restart_button = document.getElementById("restart");
 
-document.getElementById("main").addEventListener("click", function (event) {
+document.getElementById("main").addEventListener("click", (event) => {
 	if (event.target.classList.contains("next_btn")) {
 		console.log(document.getElementById("answer").value);
 		gameEngine.nextPage();
 	}
 });
 
-restart_button.addEventListener("click", function (e) {
+restart_button.addEventListener("click", (e) => {
 	gameEngine.restartGame();
 });
