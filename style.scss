@@ -12,10 +12,10 @@ body {
 		height: 80%;
 		width: 60%;
 
-		background-color: rgb(255, 255, 255);
+		background-color: rgb(145, 123, 3);
 	}
 
-	.answer {
+	& .answer {
 		display: flex;
 		flex-direction: column;
 		background: rgba(25, 25, 25, 0.5);
@@ -26,18 +26,23 @@ body {
 		padding: 2%;
 		box-sizing: border-box;
 
-		input {
+		& input {
 			padding: 10px;
 		}
 
-		button {
+		& button {
 			background: green;
 			color: white;
 		}
 	}
 
-	#error {
+	& #error {
 		color: red;
+	}
+
+	& #answer {
+		color: rgb(4, 17, 9);
+		background-color: rgb(230, 247, 156);
 	}
 }
 
