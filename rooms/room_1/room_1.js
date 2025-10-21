@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 var btns = [];
+=======
+if (typeof btns === undefined) {
+	let btns = [];
+} else {
+	btns = [];
+}
+>>>>>>> 88d9b048bd468c22d85a1da2a2d4cdc9008ea1f7
 
 function add_btn() {
 	if (btns.length < 30) {
