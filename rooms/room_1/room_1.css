@@ -19,4 +19,9 @@
 }
 .room > button:active {
   background-color: rgb(138, 158, 49);
+}
+
+#btn_answer {
+  color: black;
+  background-color: red;
 }/*# sourceMappingURL=room_1.css.map */

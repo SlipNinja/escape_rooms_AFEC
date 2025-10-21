@@ -10,7 +10,7 @@ function add_btn() {
 		btns.push(new_button);
 		if (btns.length == 26) {
 			new_button.textContent = "St4ckOv3rfl0w";
-			new_button.id = "answer";
+			new_button.id = "btn_answer";
 		}
 	}
 }
