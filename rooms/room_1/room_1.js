@@ -1,4 +1,4 @@
-const btns = [];
+var btns = [];
 
 function add_btn() {
 	if (btns.length < 30) {
