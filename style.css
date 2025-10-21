@@ -13,10 +13,10 @@ body > #main_container {
   align-items: center;
   height: 80%;
   width: 60%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(145, 123, 3);
 }
 body .answer {
-  display: flex;
+  display: none;
   flex-direction: column;
   background: rgba(25, 25, 25, 0.5);
   gap: 20px;
@@ -35,6 +35,10 @@ body .answer button {
 }
 body #error {
   color: red;
+}
+body #answer {
+  color: rgb(4, 17, 9);
+  background-color: rgb(230, 247, 156);
 }
 
 button {

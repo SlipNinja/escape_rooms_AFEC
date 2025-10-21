@@ -16,7 +16,7 @@ body {
 	}
 
 	& .answer {
-		display: flex;
+		display: none;
 		flex-direction: column;
 		background: rgba(25, 25, 25, 0.5);
 		gap: 20px;
