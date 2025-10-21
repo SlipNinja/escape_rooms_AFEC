@@ -1,24 +1,51 @@
 export class RoomManager {
 	container = document.getElementById("main_container");
-	current_room = 0;
+
+	constructor() {
+		this.load_room();
+	}
 
 	get_current_room() {
-		return this.current_room;
+		if (!sessionStorage.getItem("currentRoomNumber")) sessionStorage.setItem("currentRoomNumber", 0);
+
+		return parseInt(sessionStorage.getItem("currentRoomNumber"));
 	}
 
 	increment_room() {
-		this.current_room++;
+		let currRoom = parseInt(sessionStorage.getItem("currentRoomNumber"));
+		sessionStorage.setItem("currentRoomNumber", currRoom + 1);
+		console.log("increased", sessionStorage.getItem("currentRoomNumber"));
 	}
 
-	async load_room(room_number = this.current_room) {
+	notLandingPage() {
+		return this.get_current_room() > 0;
+	}
+
+	async load_room(room_number = this.get_current_room()) {
 		console.log("CLICKED");
+		console.log(room_number);
 		this.container.innerHTML = await this.fetch_room_html(room_number);
-		this.replace_js(room_number);
-		this.replace_css(room_number);
+
+		if (this.notLandingPage()) {
+			this.replace_js(room_number);
+			this.replace_css(room_number);
+			document.getElementById("answer_container").style.display = "flex";
+		}
 	}
 
 	async fetch_room_html(room) {
-		const html_file = `rooms/room_${room}/room_${room}.html`;
+		let html_file;
+		if (room > 0) {
+			console.log("fetch html >0");
+			html_file = `rooms/room_${room}/room_${room}.html`;
+		} else {
+			console.log("fetch html 0");
+
+			html_file = `landing.html`;
+		}
+
+		console.log("fetch html room", html_file);
+
 		return fetch(html_file).then((response) => {
 			return response.text();
 		});

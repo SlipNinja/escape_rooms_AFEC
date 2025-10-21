@@ -15,8 +15,8 @@ body > #main_container {
   width: 60%;
   background-color: rgb(145, 123, 3);
 }
-body .answer {
-  display: none;
+body #answer_container {
+  display: flex;
   flex-direction: column;
   background: rgba(25, 25, 25, 0.5);
   gap: 20px;
@@ -26,10 +26,10 @@ body .answer {
   padding: 2%;
   box-sizing: border-box;
 }
-body .answer input {
+body #answer_container input {
   padding: 10px;
 }
-body .answer button {
+body #answer_container button {
   background: green;
   color: white;
 }

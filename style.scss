@@ -15,8 +15,8 @@ body {
 		background-color: rgb(145, 123, 3);
 	}
 
-	& .answer {
-		display: none;
+	& #answer_container {
+		display: flex;
 		flex-direction: column;
 		background: rgba(25, 25, 25, 0.5);
 		gap: 20px;
