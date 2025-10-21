@@ -13,9 +13,7 @@ class GameEngine {
 	async checkAnswer() {
 		const answer = document.getElementById("answer").value;
 
-		let currentRoom = this.room.get_current_room();
-
-		return answer == this.enigma.getQuestionById(currentRoom).answer;
+		return answer == this.enigma.getQuestionById(this.room.get_current_room()).answer;
 	}
 
 	displayErrorMessage() {
@@ -28,39 +26,49 @@ class GameEngine {
 	}
 
 	updateQuestion() {
-		document.getElementById("question").innerHTML = this.enigma.getQuestionById(
-			this.room.get_current_room()
-		).question;
+		document.getElementById("question").innerHTML = this.enigma.getQuestionById(this.room.get_current_room()).question;
 	}
 
 	nextPage() {
-		if (this.room.get_current_room()) {
+		debugger;
+		if (this.room.get_current_room() > 0) {
+			console.log(">0");
 			this.checkAnswer().then((response) => {
 				if (response) {
 					this.resetInput();
 					this.room.increment_room();
-					this.room.load_room(this.room.get_current_room());
+					this.room.load_room();
 					this.updateQuestion();
 				} else {
 					this.displayErrorMessage();
 				}
 			});
 		} else {
+			console.log("0");
+
+			this.resetInput();
 			this.room.increment_room();
-			this.room.load_room(this.room.get_current_room());
+			this.room.load_room();
 			this.updateQuestion();
-			document.getElementsByClassName("answer")[0].style.display = "flex";
 		}
+	}
+
+	restartGame() {
+		sessionStorage.removeItem("currentRoomNumber");
+		document.getElementById("answer_container").style.display = "none";
+		this.room.load_room(0);
 	}
 }
 
 const gameEngine = new GameEngine();
-const next_buttons = document.getElementsByClassName("next_btn");
+const restart_button = document.getElementById("restart");
 
-for (const btn of next_buttons) {
-	btn.addEventListener("click", function (e) {
+document.getElementById("main").addEventListener("click", function (event) {
+	if (event.target.classList.contains("next_btn")) {
 		gameEngine.nextPage();
-	});
-}
+	}
+});
 
-gameEngine.room.load_room(5);
+restart_button.addEventListener("click", function (e) {
+	gameEngine.restartGame();
+});
